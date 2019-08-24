@@ -18,6 +18,6 @@ exports.verify_user = "UPDATE users_list SET ACTIVE = 1 WHERE USER_ID = ?";
 
 exports.update_password = "UPDATE users_list SET PASSWORD = ?  WHERE USER_ID = ?";
 
-exports.create_task = "INSERT INTO task_list(task_name,task_details,task_email,task_phone,task_time,status) VALUES(?)"
+exports.create_task = "INSERT INTO task_list(task_name,task_details,task_email,task_phone,task_time,user_id,status) VALUES(?)"
 
-exports.getTaskList = "SELECT * FROM task_list";
+exports.getTaskList = "SELECT * FROM task_list where user_id = ?";

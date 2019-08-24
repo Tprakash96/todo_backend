@@ -1,0 +1,5 @@
+.project
+package-lock.json
+/node_modules/.cache
+/npm-debug.log
+/node_modules
