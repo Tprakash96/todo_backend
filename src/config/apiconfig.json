@@ -4,7 +4,7 @@
             "accountSid": "ACeeafe2688d01c948898296b078505948",
             "authToken": "cb0c86782b26d93fb419006b70bb02e6"
         },
-        "web-url": {
+        "webUrl": {
             "baseUrl": "https://prakash96-todo.herokuapp.com"
         }
     }

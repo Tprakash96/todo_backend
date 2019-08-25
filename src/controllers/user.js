@@ -22,7 +22,7 @@ exports.user_create = (req, res, next) => {
                 else {
                     queries.executeQuery(queries.create_user, [[userName, email, hash, 0]])
                         .then((response) => {
-                            const verficationURL = url.config.baseUrl + "/verification/" + response.insertId;
+                            const verficationURL = url.config.webUrl.baseUrl + "/verification/" + response.insertId;
                             const mailOptions = {
                                 from: '"Prakas T" <tprakashkce@gmail.com>',
                                 to: email,
@@ -126,7 +126,7 @@ exports.forget_password = (req, res, next) => {
     queries.executeQuery(queries.find_user, [email]).then((response) => {
         const isUserExist = (response.length > 0);
         if (isUserExist) {
-            const verficationURL = url.config.baseUrl + "/user/resetPassword/" + response[0].user_id;
+            const verficationURL = url.config.webUrl.baseUrl + "/user/resetPassword/" + response[0].user_id;
             const mailOptions = {
                 from: '"Prakas T" <tprakashkce@gmail.com>',
                 to: email,
