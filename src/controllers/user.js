@@ -22,7 +22,7 @@ exports.user_create = (req, res, next) => {
                 else {
                     queries.executeQuery(queries.create_user, [[userName, email, hash, 0]])
                         .then((response) => {
-                            const verficationURL = url.config.webUrl.baseUrl + "user/verification/" + response.insertId;
+                            const verficationURL = url.config.webUrl.baseUrl + "/user/verification/" + response.insertId;
                             const mailOptions = {
                                 from: '"Prakas T" <tprakashkce@gmail.com>',
                                 to: email,
