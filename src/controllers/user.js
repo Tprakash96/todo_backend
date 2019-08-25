@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const queries = require('../database/queries');
 const mail = require('../helpers/email');
 const jwt = require("jsonwebtoken");
+const url = require('../config/apiconfig.json');
 
 exports.user_create = (req, res, next) => {
     const reqData = req.body;
@@ -21,7 +22,7 @@ exports.user_create = (req, res, next) => {
                 else {
                     queries.executeQuery(queries.create_user, [[userName, email, hash, 0]])
                         .then((response) => {
-                            const verficationURL = "http://localhost:3000/user/verification/" + response.insertId;
+                            const verficationURL = url.config.baseUrl + "/verification/" + response.insertId;
                             const mailOptions = {
                                 from: '"Prakas T" <tprakashkce@gmail.com>',
                                 to: email,
@@ -125,7 +126,7 @@ exports.forget_password = (req, res, next) => {
     queries.executeQuery(queries.find_user, [email]).then((response) => {
         const isUserExist = (response.length > 0);
         if (isUserExist) {
-            const verficationURL = "http://localhost:3000/user/resetPassword/" + response[0].user_id;
+            const verficationURL = url.config.baseUrl + "/user/resetPassword/" + response[0].user_id;
             const mailOptions = {
                 from: '"Prakas T" <tprakashkce@gmail.com>',
                 to: email,
