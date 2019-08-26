@@ -5,7 +5,7 @@
             "authToken": "cb0c86782b26d93fb419006b70bb02e6"
         },
         "webUrl": {
-            "baseUrl": "localhost:3000"
+            "baseUrl": "https://prakash96-todo.herokuapp.com"
         }
     }
 }
